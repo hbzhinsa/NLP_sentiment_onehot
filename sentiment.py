@@ -11,7 +11,7 @@ from nltk.corpus import wordnet
 
 # %%
 # * Try lemmatizing using NLTK to improve prediction
-sentence = "The striped bats are hanging on their feet for best"
+sentence = "Wow ... Loved this place "
 word_list = nltk.word_tokenize(sentence)
 print(word_list)
 wnl = WordNetLemmatizer()
@@ -29,10 +29,10 @@ def get_wordnet_pos(word):
                 "R": wordnet.ADV}
     return tag_dict.get(tag, wordnet.NOUN)
 
-word = 'are'
+word = 'loved'
 print(wnl.lemmatize(word, get_wordnet_pos(word)))
-print([wnl.lemmatize(w, get_wordnet_pos(w)) for w in nltk.word_tokenize(sentence)])
-print('better')
+print([wnl.lemmatize(w, get_wordnet_pos(w)) for w in nltk.word_tokenize(sentence.lower())])
+# ? looks like better, for this sentence, try for general cases
 
 # * sentiment prediction>>
 # Training data path
@@ -51,7 +51,15 @@ for source, filepath in filepath.items():
 df=pd.concat(df_list)
 df.head()
 
-# % Prepare data 
+# * Prepare data 
 # 
-#! https://realpython.com/python-keras-text-classification/
-for index in len()
+for index in range(len(df.sentence)):
+    df.sentence.iloc[index]=' '.join([wnl.lemmatize(w, get_wordnet_pos(w))
+                             for w in nltk.word_tokenize(df.sentence.iloc[index].lower())])
+#%%
+df.head()
+# much btter ...
+
+# % Prepare trainning ref:
+# https://realpython.com/python-keras-text-classification/
+# %%
