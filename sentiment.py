@@ -15,7 +15,6 @@ from tensorflow.keras.backend import clear_session
 import matplotlib.pyplot as plt
 from tensorflow.python.keras.callbacks import EarlyStopping
 
-
 # %%
 # * Try lemmatizing using NLTK to improve prediction
 sentence = "Wow ... Loved this place "
